@@ -18,7 +18,20 @@
             console.error(error);
           }
         );
+        makeFavoriteList();
+        switchDisplay();
       };
+
+      function makeFavoriteList() {
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const select = document.getElementById("favorites-select");
+        select.innerHTML = "";
+        favorites.forEach((item) => {
+          const option = document.createElement("option");
+          option.text = item.city;
+          select.add(option);
+        });
+      }
       function initMap() {
         const input = document.getElementById("city-input");
         const options = {
@@ -52,7 +65,44 @@
             document.getElementById("weather").innerHTML = weather;
             document.getElementById("description").innerHTML = description;
           })
-          .catch((error) => console.error(error));
+          .catch((error) => console.error(error))
+          .finally(() => {
+            localStorage.setItem("lat", lat);
+            localStorage.setItem("lng", lng);
+          });
+      }
+
+      function favorite() {
+        const city = document.getElementById("city").innerHTML;
+        const lat = localStorage.getItem("lat");
+        const lng = localStorage.getItem("lng");
+
+        const favorite = {
+          city,
+          lat,
+          lng,
+        };
+
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        favorites.push(favorite);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        makeFavoriteList();
+      }
+
+      function remove() {
+        const city = document.getElementById("city").innerHTML;
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const newFavorites = favorites.filter((item) => item.city !== city);
+        localStorage.setItem("favorites", JSON.stringify(newFavorites));
+        makeFavoriteList();
+      }
+
+      function selectCity() {
+        const select = document.getElementById("favorites-select");
+        const city = select.options[select.selectedIndex].text;
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const favorite = favorites.find((item) => item.city === city);
+        fetchCurrentWeather(favorite.lat, favorite.lng);
       }
     </script>
     <title>Weather App</title>
@@ -60,9 +110,12 @@
   <body>
     <h1>Weather App</h1>
     <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
+    <select id="favorites-select" onchange="selectCity()"></select>
     <div>CityName: <span id="city"></span></div>
     <div>Weather: <span id="weather"></span></div>
     <div>Temperature: <span id="temperature"></span></div>
     <div>Description: <span id="description"></span></div>
+    <button style="margin-top: 10px" id="favorite" onclick="favorite()">Favorite</button>
+    <button style="margin-top: 10px" id="remove" onclick="remove()">Remove</button>
   </body>
 </html>
