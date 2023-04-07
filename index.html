@@ -5,117 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script async src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
+    <script src="js/main.js"></script>
+    <script src="js/favorite.js"></script>
+    <script src="js/openWeather.js"></script>
+    <script src="js/googlePlace.js"></script>
+
     <script>
-      window.onload = function () {
-        navigator.geolocation.getCurrentPosition(
-          function (position) {
+      window.onload = async () => {
+        await navigator.geolocation.getCurrentPosition(
+          (position) => {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
-            fetchCurrentWeather(lat, lng);
+            fetchWeatherData(lat, lng);
+            switchFavoriteRemove();
           },
-          function (error) {
+          (error) => {
             console.error(error);
           }
         );
         makeFavoriteList();
-        switchDisplay();
       };
-
-      function makeFavoriteList() {
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        const select = document.getElementById("favorites-select");
-        select.innerHTML = "";
-        favorites.forEach((item) => {
-          const option = document.createElement("option");
-          option.text = item.city;
-          select.add(option);
-        });
-      }
-      function initMap() {
-        const input = document.getElementById("city-input");
-        const options = {
-          types: ["(cities)"],
-        };
-
-        const autocomplete = new google.maps.places.Autocomplete(input, options);
-        autocomplete.addListener("place_changed", function () {
-          const place = autocomplete.getPlace();
-          const lat = place.geometry.location.lat();
-          const lng = place.geometry.location.lng();
-          fetchCurrentWeather(lat, lng);
-        });
-      }
-
-      function fetchCurrentWeather(lat, lng) {
-        const unit = "metric";
-        const apiKey = "";
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
-
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            const city = data.name;
-            const temperature = data.main.temp;
-            const weather = data.weather[0].main;
-            const description = data.weather[0].description;
-
-            document.getElementById("city").innerHTML = city;
-            document.getElementById("temperature").innerHTML = temperature;
-            document.getElementById("weather").innerHTML = weather;
-            document.getElementById("description").innerHTML = description;
-          })
-          .catch((error) => console.error(error))
-          .finally(() => {
-            localStorage.setItem("lat", lat);
-            localStorage.setItem("lng", lng);
-          });
-      }
-
-      function favorite() {
-        const city = document.getElementById("city").innerHTML;
-        const lat = localStorage.getItem("lat");
-        const lng = localStorage.getItem("lng");
-
-        const favorite = {
-          city,
-          lat,
-          lng,
-        };
-
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        favorites.push(favorite);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-        makeFavoriteList();
-      }
-
-      function remove() {
-        const city = document.getElementById("city").innerHTML;
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        const newFavorites = favorites.filter((item) => item.city !== city);
-        localStorage.setItem("favorites", JSON.stringify(newFavorites));
-        makeFavoriteList();
-      }
-
-      function selectCity() {
-        const select = document.getElementById("favorites-select");
-        const city = select.options[select.selectedIndex].text;
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        const favorite = favorites.find((item) => item.city === city);
-        fetchCurrentWeather(favorite.lat, favorite.lng);
-      }
     </script>
     <title>Weather App</title>
   </head>
   <body>
     <h1>Weather App</h1>
     <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
-    <select id="favorites-select" onchange="selectCity()"></select>
+    <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
     <div>CityName: <span id="city"></span></div>
-    <div>Weather: <span id="weather"></span></div>
-    <div>Temperature: <span id="temperature"></span></div>
-    <div>Description: <span id="description"></span></div>
+    <div>Weather: <span id="currentWeather"></span></div>
+    <div>Temperature: <span id="currentTemperature"></span></div>
+    <div>Description: <span id="currentDescription"></span></div>
     <button style="margin-top: 10px" id="favorite" onclick="favorite()">Favorite</button>
-    <button style="margin-top: 10px" id="remove" onclick="remove()">Remove</button>
+    <button style="margin-top: 10px; display: none" id="remove" onclick="remove()">Remove</button>
   </body>
 </html>
