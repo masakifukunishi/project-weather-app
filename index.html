@@ -5,14 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script async src="https://maps.googleapis.com/maps/api/js?key==places&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap"></script>
     <script>
+      window.onload = function () {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            fetchCurrentWeather(lat, lng);
+          },
+          function (error) {
+            console.error(error);
+          }
+        );
+      };
       function initMap() {
         const input = document.getElementById("city-input");
         const options = {
           types: ["(cities)"],
         };
+
         const autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete.addListener("place_changed", function () {
+          const place = autocomplete.getPlace();
+          const lat = place.geometry.location.lat();
+          const lng = place.geometry.location.lng();
+          fetchCurrentWeather(lat, lng);
+        });
+      }
+
+      function fetchCurrentWeather(lat, lng) {
+        const unit = "metric";
+        const apiKey = "";
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=${unit}&appid=${apiKey}`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            const city = data.name;
+            const temperature = data.main.temp;
+            const weather = data.weather[0].main;
+            const description = data.weather[0].description;
+
+            document.getElementById("city").innerHTML = city;
+            document.getElementById("temperature").innerHTML = temperature;
+            document.getElementById("weather").innerHTML = weather;
+            document.getElementById("description").innerHTML = description;
+          })
+          .catch((error) => console.error(error));
       }
     </script>
     <title>Weather App</title>
@@ -20,5 +60,9 @@
   <body>
     <h1>Weather App</h1>
     <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
+    <div>CityName: <span id="city"></span></div>
+    <div>Weather: <span id="weather"></span></div>
+    <div>Temperature: <span id="temperature"></span></div>
+    <div>Description: <span id="description"></span></div>
   </body>
 </html>
