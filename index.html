@@ -9,6 +9,7 @@
     <script src="js/favorite.js"></script>
     <script src="js/openWeather.js"></script>
     <script src="js/googlePlace.js"></script>
+    <script src="js/threeHourRange.js"></script>
 
     <script>
       window.onload = async () => {
@@ -30,13 +31,39 @@
   </head>
   <body>
     <h1>Weather App</h1>
-    <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
+    <input
+      type="text"
+      id="city-input"
+      class="Autocomplete"
+      placeholder="Enter City Name"
+    />
     <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
     <div>CityName: <span id="city"></span></div>
     <div>Weather: <span id="currentWeather"></span></div>
     <div>Temperature: <span id="currentTemperature"></span></div>
     <div>Description: <span id="currentDescription"></span></div>
-    <button style="margin-top: 10px" id="favorite" onclick="favorite()">Favorite</button>
-    <button style="margin-top: 10px; display: none" id="remove" onclick="remove()">Remove</button>
+    <button style="margin-top: 10px" id="favorite" onclick="favorite()">
+      Favorite
+    </button>
+    <button
+      style="margin-top: 10px; display: none"
+      id="remove"
+      onclick="remove()"
+    >
+      Remove
+    </button>
+
+    <!-- soojin -->
+    <h2>3 hour range</h2>
+    <div class="threeHour">
+      <span class="threeHour__0"></span>
+      <span class="threeHour__3"></span>
+      <span class="threeHour__6"></span>
+      <span class="threeHour__9"></span>
+      <span class="threeHour__12"></span>
+      <span class="threeHour__15"></span>
+      <span class="threeHour__18"></span>
+      <span class="threeHour__21"></span>
+    </div>
   </body>
 </html>
