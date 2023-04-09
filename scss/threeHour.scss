@@ -3,14 +3,8 @@ h2 {
 } 
 .threeHour {
     display: flex;
-    flex-direction: column;
-    
-     
-    // &__0 {    
-    //     color:green
-    // }
-
-    // &__3 {
-    //     color :yellow
-    // }
+    span {
+        border: 1px solid black;
+        padding :1rem;
+    }
 }

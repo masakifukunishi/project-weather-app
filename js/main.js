@@ -6,6 +6,8 @@ const setCurrentWeather = (currentWeather, lat, lng) => {
   localStorage.setItem("lat", lat);
   localStorage.setItem("lng", lng);
   switchFavoriteRemove();
+  // soojin - change 3 hour weather when you change the city
+  threeHourRange(lat, lng);
 };
 
 // This function is executed when a search is performed and when a select box is selected

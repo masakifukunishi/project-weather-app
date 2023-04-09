@@ -49,6 +49,9 @@ const selectFromFavoriteCity = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const favorite = favorites.find((item) => item.city === city);
   fetchWeatherData(favorite.lat, favorite.lng);
+
+  // soojin - change 3 hour weather when you change the city
+  threeHourRange(favorite.lat, favorite.lng);
 };
 
 const switchFavoriteRemove = () => {

@@ -16,5 +16,7 @@ function initMap() {
     const lat = place.geometry.location.lat();
     const lng = place.geometry.location.lng();
     fetchWeatherData(lat, lng);
+    // soojin - change 3 hour weather when you change the city
+    threeHourRange(lat, lng);
   });
 }
