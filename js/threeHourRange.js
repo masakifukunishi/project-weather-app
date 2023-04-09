@@ -42,7 +42,3 @@ function threeHourRange(lat, log){
     .catch((error) => console.error(error));
 }
 
-function threeHourError(){
-    alert("Can't find you. No weather for you.")
-}
-
