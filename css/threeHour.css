@@ -5,7 +5,7 @@ h2 {
 .threeHour {
   display: flex;
 }
-.threeHour span {
+.threeHour div {
   border: 1px solid black;
   padding: 1rem;
 }/*# sourceMappingURL=threeHour.css.map */

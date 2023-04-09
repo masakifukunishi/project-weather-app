@@ -9,32 +9,40 @@ function threeHourRange(lat, log){
     fetch(url)
     .then(response => response.json())
     .then(data =>{
-        console.log(url);
-        const city = document.querySelector('.threeHour__city');
-        const weather_0 = document.querySelector('.threeHour__0');
-        const weather_3 = document.querySelector('.threeHour__3');
-        const weather_6 = document.querySelector('.threeHour__6');
-        const weather_9 = document.querySelector('.threeHour__9');
-        const weather_12 = document.querySelector('.threeHour__12');
-        const weather_15 = document.querySelector('.threeHour__15');
-        const weather_18 = document.querySelector('.threeHour__18');
-        const weather_21 = document.querySelector('.threeHour__21');
-
-        city.innerText = `city : ${data.city.name}`;
-        weather_0.innerText =`${data.list[0].dt_txt} : ${data.list[0].weather[0].description}`;
-        weather_3.innerText =`${data.list[1].dt_txt} : ${data.list[1].weather[0].description}`;
-        weather_6.innerText =`${data.list[2].dt_txt} : ${data.list[2].weather[0].description}`;
-        weather_9.innerText =`${data.list[3].dt_txt} : ${data.list[3].weather[0].description}`;
-        weather_12.innerText =`${data.list[4].dt_txt} : ${data.list[4].weather[0].description}`;
-        weather_15.innerText =`${data.list[5].dt_txt} : ${data.list[5].weather[0].description}`;
-        weather_18.innerText =`${data.list[6].dt_txt} : ${data.list[6].weather[0].description}`;
-        weather_21.innerText =`${data.list[7].dt_txt} : ${data.list[7].weather[0].description}`;
+        // console.log(url);
+        const city = document.querySelector('.threeHour-city > span');
+        const weather_0 = document.querySelector('.threeHour-0 > span');
+        const weather_0_img = document.querySelector('.threeHour-0 > img');
+        const weather_1 = document.querySelector('.threeHour-1 > span');
+        const weather_1_img = document.querySelector('.threeHour-1 > img');
+        const weather_2 = document.querySelector('.threeHour-2 > span');
+        const weather_2_img = document.querySelector('.threeHour-2 > img');
+        const weather_3 = document.querySelector('.threeHour-3 > span');
+        const weather_3_img = document.querySelector('.threeHour-3 > img');
+        const weather_4 = document.querySelector('.threeHour-4 > span');
+        const weather_4_img = document.querySelector('.threeHour-4 > img');
+        const weather_5 = document.querySelector('.threeHour-5 > span');
+        const weather_5_img = document.querySelector('.threeHour-5 > img');
+        const weather_6 = document.querySelector('.threeHour-6 > span');
+        const weather_6_img = document.querySelector('.threeHour-6 > img');
+        const weather_7 = document.querySelector('.threeHour-7 > span');
+        const weather_7_img = document.querySelector('.threeHour-7 > img');
+        
+        for(let i = 0; i < 8; i++){
+            
+            let weatherTime = data.list[i].dt_txt; 
+            let weatherDes = data.list[i].weather[0].description;
+            let weatherIcon = data.list[i].weather[0].icon;
+            
+            city.innerText = `city : ${data.city.name}`;
+            eval('weather_'+ i).innerText =`${weatherTime} : ${weatherDes}`;
+            eval('weather_'+ i +'_img').src = `https://openweathermap.org/img/w/${weatherIcon}.png`; 
+        }
     })
+    .catch((error) => console.error(error));
 }
 
 function threeHourError(){
     alert("Can't find you. No weather for you.")
 }
 
-
-// navigator.geolocation.getCurrentPosition(threeHourRange,threeHourError);
