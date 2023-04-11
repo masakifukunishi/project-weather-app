@@ -5,9 +5,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js"></script>
+    <script src="js/favorite.js"></script>
+    <script src="js/openWeather.js"></script>
+    <script src="js/googlePlace.js"></script>
+    <script src="js/threeHourRange.js"></script>
+
+    <script>
+      window.onload = async () => {
+        await navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            fetchWeatherData(lat, lng);
+            switchFavoriteRemove();
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+        makeFavoriteList();
+      };
+    </script>
     <title>Weather App</title>
   </head>
   <body>
     <h1>Weather App</h1>
+    <input
+      type="text"
+      id="city-input"
+      class="Autocomplete"
+      placeholder="Enter City Name"
+    />
+    <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
+    <div>CityName: <span id="city"></span></div>
+    <div>Weather: <span id="currentWeather"></span></div>
+    <div>Temperature: <span id="currentTemperature"></span></div>
+    <div>Description: <span id="currentDescription"></span></div>
+    <button style="margin-top: 10px" id="favorite" onclick="favorite()">
+      Favorite
+    </button>
+    <button
+      style="margin-top: 10px; display: none"
+      id="remove"
+      onclick="remove()"
+    >
+      Remove
+    </button>
+
+    <!-- soojin -->
+    <h2>3 Hour Range</h2>
+    <section id="threeHour">
+      <div class="threeHour-city">
+        <span></span>
+      </div>
+      <div class="threeHour-0">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-1">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-2">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-3">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-4">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-5">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-6">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+      <div class="threeHour-7">
+        <span></span>
+        <img src="" alt="" />
+      </div>
+    </section>
   </body>
 </html>
