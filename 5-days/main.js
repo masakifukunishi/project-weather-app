@@ -4,7 +4,8 @@ function GetInfo(){
     cityName.innerHtml="--"+newName.value+"--";
 
 /* Here i need to use the javascript promisses */
-fetch("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=77df2dfab4d22202936fbd698e7ed03d")
+fetch("https://api.openweathermap.org/data/2.5/forecast?lat='+newName.value+'&appid=f8f6bee7d071ca7ad5262dbb8a3f2f76")
+
 .then(response =>response.json())
 .then(data =>{
     for(i=0; i<5; i++){

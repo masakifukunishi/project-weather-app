@@ -3,7 +3,7 @@
     background: rgb(134, 200, 208);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+     
 #cityInput, #cityName, #inputContainer, button{
     margin: 3px;
     padding: 5px;
