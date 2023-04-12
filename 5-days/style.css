@@ -1,6 +1,6 @@
 *{
     color: rgb(7, 1, 1);
-    background: rgb(79, 151, 163);
+    background: rgb(134, 200, 208);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -19,7 +19,7 @@
     transform: translate(-50%, -50%);
     height:400px;
     width: 1400px;
-    border: 5px solid rgba(78, 77, 77, 0.829);
+    border: 5px solid rgba(41, 41, 41, 0.829);
     border-radius: 10px;
 }
 #iconsContainer{
@@ -38,7 +38,7 @@
     height: 275px;
     width: 200px;
     margin:20px;
-    border: 5px solid rgb(104, 104, 104);
+    border: 5px solid rgb(23, 61, 32);
     border-radius: 10px;
 }
 .image{
