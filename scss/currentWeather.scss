@@ -1,0 +1,65 @@
+#current-weather {
+  h2 {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  #current-weather-info {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    .city {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 0 0.2rem 0 0;
+    }
+
+    .city-icon {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    #favorite-icon {
+      width: 30px;
+      cursor: pointer;
+      display: none;
+      position: absolute;
+      right: -31px;
+    }
+
+    #favorite-transparent-icon {
+      display: none;
+      width: 30px;
+      cursor: pointer;
+      position: absolute;
+      right: -31px;
+    }
+
+    .temperature {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-left: 2px;
+    }
+
+    .icon-temperature {
+      display: flex;
+      align-items: center;
+    }
+
+    .weather {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .description {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-top: 0.5rem;
+    }
+  }
+}

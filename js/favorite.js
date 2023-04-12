@@ -1,5 +1,6 @@
 const favorite = () => {
-  const city = document.getElementById("city").innerHTML;
+  const currentWeatherElement = document.getElementById("current-weather");
+  const city = currentWeatherElement.querySelector(".city").innerHTML;
   const lat = localStorage.getItem("lat");
   const lng = localStorage.getItem("lng");
 
@@ -17,7 +18,8 @@ const favorite = () => {
 };
 
 const remove = () => {
-  const city = document.getElementById("city").innerHTML;
+  const currentWeatherElement = document.getElementById("current-weather");
+  const city = currentWeatherElement.querySelector(".city").innerHTML;
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const newFavorites = favorites.filter((item) => item.city !== city);
   localStorage.setItem("favorites", JSON.stringify(newFavorites));
@@ -31,7 +33,7 @@ const makeFavoriteList = () => {
   select.innerHTML = "";
   // initial option
   const initial = document.createElement("option");
-  initial.text = "Select a city";
+  initial.text = "Favorite cities";
   select.add(initial);
 
   favorites.forEach((item) => {
@@ -53,13 +55,14 @@ const selectFromFavoriteCity = () => {
 
 const switchFavoriteRemove = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  const city = document.getElementById("city").innerHTML;
-  document.getElementById("favorite").style.display = "block";
-  document.getElementById("remove").style.display = "none";
+  const currentWeatherElement = document.getElementById("current-weather");
+  const city = currentWeatherElement.querySelector(".city").innerHTML;
+  document.getElementById("favorite-icon").style.display = "none";
+  document.getElementById("favorite-transparent-icon").style.display = "block";
   favorites.forEach((element) => {
     if (element.city === city) {
-      document.getElementById("favorite").style.display = "none";
-      document.getElementById("remove").style.display = "block";
+      document.getElementById("favorite-icon").style.display = "block";
+      document.getElementById("favorite-transparent-icon").style.display = "none";
     }
   });
 };
