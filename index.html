@@ -35,18 +35,21 @@
       <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
       <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
     </div>
+    <div id="loader"></div>
     <section id="current-weather">
       <h2>Current weather</h2>
       <div id="current-weather-info">
-        <div class="city"></div>
+        <div class="city-icon">
+          <div class="city"></div>
+          <img src="images/star.png" alt="favorite" id="favorite-icon" onclick="remove()" />
+          <img src="images/star-transparent.png" alt="remove" id="favorite-transparent-icon" onclick="favorite()" />
+        </div>
         <div class="icon-temperature">
           <div><img class="icon" src="" /></div>
           <div class="temperature"></div>
         </div>
         <div class="weather"></div>
         <div class="description"></div>
-        <button style="margin-top: 10px" id="favorite" onclick="favorite()">Favorite</button>
-        <button style="margin-top: 10px; display: none" id="remove" onclick="remove()">Remove</button>
       </div>
     </section>
     <!-- soojin -->

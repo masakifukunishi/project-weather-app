@@ -57,12 +57,12 @@ const switchFavoriteRemove = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   const currentWeatherElement = document.getElementById("current-weather");
   const city = currentWeatherElement.querySelector(".city").innerHTML;
-  document.getElementById("favorite").style.display = "block";
-  document.getElementById("remove").style.display = "none";
+  document.getElementById("favorite-icon").style.display = "none";
+  document.getElementById("favorite-transparent-icon").style.display = "block";
   favorites.forEach((element) => {
     if (element.city === city) {
-      document.getElementById("favorite").style.display = "none";
-      document.getElementById("remove").style.display = "block";
+      document.getElementById("favorite-icon").style.display = "block";
+      document.getElementById("favorite-transparent-icon").style.display = "none";
     }
   });
 };
