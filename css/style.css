@@ -1,4 +1,33 @@
+@import url("/css/currentWeather.css");
 @import url("/css/threeHour.css");
+body {
+  background-color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin: 1.5rem 1.5rem;
+  padding: 0;
+}
+
 h1 {
-  color: red;
-}/*# sourceMappingURL=style.css.map */
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.search {
+  margin: 0.8rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#favorites-select {
+  width: 200px;
+  height: 30px;
+}
+
+#city-input {
+  width: 200px;
+  height: 24px;
+}
+
+/*# sourceMappingURL=style.css.map */

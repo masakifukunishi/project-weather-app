@@ -10,8 +10,9 @@ const fetchCurrentWeather = async (lat, lng) => {
       const city = data.name;
       const temperature = data.main.temp;
       const weather = data.weather[0].main;
+      const icon = data.weather[0].icon;
       const description = data.weather[0].description;
-      return { city, temperature, weather, description };
+      return { city, temperature, weather, icon, description };
     })
     .catch((error) => console.error(error));
 };

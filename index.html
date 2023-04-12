@@ -31,28 +31,24 @@
   </head>
   <body>
     <h1>Weather App</h1>
-    <input
-      type="text"
-      id="city-input"
-      class="Autocomplete"
-      placeholder="Enter City Name"
-    />
-    <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
-    <div>CityName: <span id="city"></span></div>
-    <div>Weather: <span id="currentWeather"></span></div>
-    <div>Temperature: <span id="currentTemperature"></span></div>
-    <div>Description: <span id="currentDescription"></span></div>
-    <button style="margin-top: 10px" id="favorite" onclick="favorite()">
-      Favorite
-    </button>
-    <button
-      style="margin-top: 10px; display: none"
-      id="remove"
-      onclick="remove()"
-    >
-      Remove
-    </button>
-
+    <div class="search">
+      <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
+      <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
+    </div>
+    <section id="current-weather">
+      <h2>Current weather</h2>
+      <div id="current-weather-info">
+        <div class="city"></div>
+        <div class="icon-temperature">
+          <div><img class="icon" src="" /></div>
+          <div class="temperature"></div>
+        </div>
+        <div class="weather"></div>
+        <div class="description"></div>
+        <button style="margin-top: 10px" id="favorite" onclick="favorite()">Favorite</button>
+        <button style="margin-top: 10px; display: none" id="remove" onclick="remove()">Remove</button>
+      </div>
+    </section>
     <!-- soojin -->
     <h2>3 Hour Range</h2>
     <section id="threeHour">
