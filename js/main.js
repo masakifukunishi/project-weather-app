@@ -19,4 +19,6 @@ const fetchWeatherData = async (lat, lng) => {
   document.getElementById("current-weather-info").style.display = "flex";
   // soojin - change 3 hour weather
   threeHourRange(lat, lng);
+  // Ana
+  fiveDaysWeather(lat, lng);
 };

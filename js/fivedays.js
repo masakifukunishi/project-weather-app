@@ -1,4 +1,4 @@
-function GetInfo(){
+function fiveDaysWeather(){
     const newName=document.getElementById("cityInput");
     const cityName=document.getElementById("cityName");
     cityName.innerHtml="--"+newName.value+"--";
