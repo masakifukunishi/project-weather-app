@@ -2,20 +2,27 @@
   .threeHour {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
   .threeHour-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: normal;
   }
   .threeHour div {
     display: flex;
-    border: 1px solid black;
     padding: 1rem;
+  }
+  .threeHour .threeHour-weather {
+    width: 100%;
   }
   .threeHour .threeHour-weather div {
     width: 12.5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(241, 232, 232, 0.5);
+    margin: 0.5rem;
+    border-radius: 1rem;
   }
   .threeHour .threeHour-weather img {
     width: 5rem;
@@ -37,7 +44,8 @@
     flex-direction: column;
   }
   .threeHour-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: normal;
   }
   .threeHour div {
     display: flex;

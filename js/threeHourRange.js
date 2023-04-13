@@ -92,7 +92,7 @@ function threeHourRange(lat, log){
             let hour = weatherTime.getHours() < 12 ? `${weatherTime.getHours()} AM` : `${weatherTime.getHours()} PM`;
             // let weather = data.list[i].weather[0].main;
             let weatherDes = data.list[i].weather[0].description;
-            let temperature = data.list[i].main.temp;
+            let temperature = Math.round(data.list[i].main.temp);
             let weatherIcon = data.list[i].weather[0].icon;
             
             // city.innerText = `city : ${data.city.name}`;
