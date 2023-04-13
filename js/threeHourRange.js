@@ -1,15 +1,15 @@
 const API_KEY = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
-const UNIT = 8;
+const DATA_CNT = 8;
 
 
 function threeHourRange(lat, log){
     //console.log(lat, log);
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${log}&cnt=${UNIT}&appid=${API_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${log}&cnt=${DATA_CNT}&appid=${API_KEY}&units=metric`;
 
     fetch(url)
     .then(response => response.json())
     .then(data =>{
-        console.log(url);
+        //console.log(url);
         //const city = document.querySelector('.threeHour-city');
         const weather_0_date = document.querySelector('.threeHour-0 .threeHour__date');
         const weather_0_time = document.querySelector('.threeHour-0 .threeHour__time');
