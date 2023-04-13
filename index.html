@@ -32,8 +32,16 @@
   <body>
     <h1>Weather App</h1>
     <div class="search">
-      <select id="favorites-select" onchange="selectFromFavoriteCity()"></select>
-      <input type="text" id="city-input" class="Autocomplete" placeholder="Enter City Name" />
+      <select
+        id="favorites-select"
+        onchange="selectFromFavoriteCity()"
+      ></select>
+      <input
+        type="text"
+        id="city-input"
+        class="Autocomplete"
+        placeholder="Enter City Name"
+      />
     </div>
     <div id="loader"></div>
     <section id="current-weather">
@@ -41,8 +49,18 @@
       <div id="current-weather-info">
         <div class="city-icon">
           <div class="city"></div>
-          <img src="images/star.png" alt="favorite" id="favorite-icon" onclick="remove()" />
-          <img src="images/star-transparent.png" alt="remove" id="favorite-transparent-icon" onclick="favorite()" />
+          <img
+            src="images/star.png"
+            alt="favorite"
+            id="favorite-icon"
+            onclick="remove()"
+          />
+          <img
+            src="images/star-transparent.png"
+            alt="remove"
+            id="favorite-transparent-icon"
+            onclick="favorite()"
+          />
         </div>
         <div class="icon-temperature">
           <div><img class="icon" src="" /></div>
@@ -53,42 +71,66 @@
       </div>
     </section>
     <!-- soojin -->
-    <h2>3 Hour Range</h2>
-    <section id="threeHour">
-      <div class="threeHour-city">
-        <span></span>
-      </div>
-      <div class="threeHour-0">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-1">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-2">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-3">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-4">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-5">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-6">
-        <span></span>
-        <img src="" alt="" />
-      </div>
-      <div class="threeHour-7">
-        <span></span>
-        <img src="" alt="" />
+    <section class="threeHour">
+      <h2 class="threeHour-title">3 Hour Range</h2>
+      <!-- <span class="threeHour-city"></span> -->
+      <div class="threeHour-weather">
+        <div class="threeHour-0">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-1">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-2">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-3">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-4">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-5">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-6">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
+        <div class="threeHour-7">
+          <span class="threeHour__date"></span>
+          <span class="threeHour__time"></span>
+          <span class="threeHour__weather"></span>
+          <span class="threeHour__temp"></span>
+          <img src="" alt="" />
+        </div>
       </div>
     </section>
   </body>
