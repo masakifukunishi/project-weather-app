@@ -2,11 +2,15 @@
 @import url("/css/threeHour.css");
 
 body {
+  width: 100vw;
+  height:100vh;
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   color: #333;
   margin: 1.5rem 1.5rem;
   padding: 0;
+  background: linear-gradient(#4C68A5, #887FA4, #C7A4A7);
+  // background-repeat: no-repeat;
 }
 
 h1 {
@@ -22,11 +26,18 @@ h1 {
 #favorites-select {
   width: 200px;
   height: 30px;
+  background-color: rgba(241, 232, 232,0.8);
+  border-radius: 0.5rem;
+  outline: none;
 }
 
 #city-input {
   width: 200px;
   height: 24px;
+  background-color: rgba(241, 232, 232,0.8);
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
 }
 
 #loader {
