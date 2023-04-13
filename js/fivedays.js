@@ -1,43 +1,17 @@
-function fiveDaysWeather(){
-    const newName=document.getElementById("cityInput");
-    const cityName=document.getElementById("cityName");
-    cityName.innerHtml="--"+newName.value+"--";
-
-/* Here i need to use the javascript promisses */
-fetch("https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}")
-
-.then(response =>response.json())
-.then(data =>{
-    for(i=0; i<5; i++){
-        document.getElementById("day"+(i+1)+"Min").innerHTML ="Min:" + Number(data.list[i].main.temp_min -288.53).toFixed(1)+"°";
-    }
-    for(i=0; i<5; i++){
-        document.getElementById("day"+(i+1)+"Max").innerHTML ="Max:" + Number(data.list[i].main.temp_max -288.53).toFixed(1)+"°";
-    }
-    for(i=0; i<5; i++){
-        document.getElementById("img"+(i+1)).src="https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
-    }
-})
-
-
-.catch(err =>alert("Something Went Wrong"))
-}
-function DefaultScreen(){
-    document.getElementById("cityInput").defaultValue ="Vancouver";
-    GetInfo();
+function fiveDaysWeather(lat, lng) {
+    const apiKey = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
+    const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${apiKey}`;
+    fetch(URL)
+    .then(response =>response.json())
+    .then(data =>{
+        const interval = Math.floor(data.list.length / 5);
+        let count = 0;
+        for (i = 0; i < data.list.length; i += interval) {
+          document.getElementById(`day${count + 1}Min`).innerHTML = "Min:" + Number(data.list[i].main.temp_min - 288.53).toFixed(1) + "°";
+          document.getElementById(`day${count + 1}Max`).innerHTML = "Max:" + Number(data.list[i].main.temp_max - 288.53).toFixed(1) + "°";
+          document.getElementById(`img${count + 1}`).src = "https://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
+          count++;
+        }
+    })
 }
 
-const d=new Date();
-const weekday = ["Sunday", "Monday", "Tuesday", "Thursday","Friday","Saturday"];
-
-function CheckDay(day){
-    if(day +d.getDay()>6){
-        return day +d.getDay()-7;
-    }
-    else{
-        return day + d.getDay();
-    }
-}
-for(i=0;i<5;i++){
-    document.getElementById("day"+(i+1)).innerHtml = weekday[CheckDay(i)]; 
-}
