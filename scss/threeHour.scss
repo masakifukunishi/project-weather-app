@@ -4,20 +4,20 @@
         flex-direction: column;
         width:100%;
         &-title {
+            color: black;
             font-size: 1.2rem;
             font-weight: normal;
         }
     
         div {
             display: flex;
-            // border: 1px solid black;
-            padding: 1rem;
+            padding: 2rem 0;
         }
         .threeHour-weather {
             width:100%;
             
             div{
-                width: 12.5%;
+                width: 12%;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -27,8 +27,8 @@
             }
     
             img {
-                width: 5rem;
-                height: 5rem;
+                width: 4rem;
+                height: 4rem;
             }
         }
         &__date {
@@ -60,8 +60,9 @@
     
         div {
             display: flex;
-            border: 1px solid black;
+            // border: 1px solid black;
             padding: 1rem;
+            
         }
         .threeHour-weather{
             display: flex;
@@ -71,7 +72,9 @@
 
             div{
                 display: flex;
-                
+                background-color: rgba(241, 232, 232,0.5);
+                margin: 0.5rem;
+                border-radius: 1rem;
                 justify-content: space-around;
                 align-items: center;
                 width: 80%;
@@ -83,10 +86,6 @@
             }
         }
 
-        // &__date {
-        //     font-weight: bold;
-        // }
-        
         &__time {
             width: 40%;
             font-size: 0.8rem;
