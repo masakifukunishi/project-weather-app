@@ -1,0 +1,121 @@
+h2{
+    font-size: large;
+}
+h3{
+    text-align: center;
+}
+
+#cityInput,
+#cityName, 
+#inputContainer,
+button{
+    margin: 3px;
+    padding: 5px;
+    text-align: center;
+    font-size:20px;
+    font-weight: bold;
+}
+/* #weatherContainer{
+    height:250px;
+    width: 1289px;
+    border: 5px solid rgba(100, 100, 100, 0.829);
+    border-radius: 10px;
+  
+} */
+#iconsContainer{
+    height: 350px;
+    width: 1300px;
+    /* border: 5px solid rgb(31, 64, 64); */
+    border-radius: 0px;
+   
+}
+.icons{
+    display: inline-block;
+    height: 205px;
+    width: 210px;
+    margin:20px;
+    border: 5px transparent rgb(177, 176, 176);
+    background-color:rgba(241, 232, 232,0.5);
+    border-radius: 10px;
+  
+
+}
+.image{
+    height: 80px;
+    width: 70%;
+    align-items: center;
+   
+    
+}
+.imgClass{
+    height: 80px;
+    width: 70%;
+    align-items: center;
+   
+}
+.weather{
+    margin:5px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+.minValues{
+    text-align:center;
+    display: inline-block;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    margin:0;
+    margin-bottom:5px;
+    margin-left:5px;
+}
+.maxValues{
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+@media only screen and (max-width: 375px) {
+    h2{
+        font-size: large;
+    }
+    h3{
+        font-size: smaller;
+    }
+    #weatherContainer{
+        height:200px;
+        width: 500px;
+        border: 2px solid rgba(100, 100, 100, 0.829);
+    }
+    #iconsContainer {
+        display: flex;
+        flex-direction: row;
+    }
+  
+    .icons {
+      height: 190px;
+      width: 90px;
+      margin: 5px 5px;
+    }
+  
+    .imgClass {
+      height: 50px;
+    }
+    .p .minValues, .maxValues{
+        font-size: 1px;
+        text-align: center;
+    }
+  
+    .minValues,
+    .maxValues {
+      width: 70px;
+      font-size: smaller;
+    }
+  }
+  
+  
+  
