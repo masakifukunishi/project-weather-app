@@ -1,5 +1,6 @@
 h2 {
-  font-size: large;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 h3 {
@@ -101,7 +102,7 @@ button {
   }
   #iconsContainer {
     display: flex;
-    flex-direction: row;
+    justify-content: flex-start;
   }
   .icons {
     height: 190px;
