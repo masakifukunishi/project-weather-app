@@ -6,10 +6,9 @@
   }
 
   #current-weather-info {
-    display: none;
     flex-direction: column;
     align-items: center;
-    padding-top:2rem;
+    padding-top: 2rem;
     .city {
       font-size: 1.6rem;
       font-weight: bold;

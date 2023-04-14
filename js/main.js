@@ -15,10 +15,11 @@ const fetchWeatherData = async (lat, lng) => {
   // current weather
   const currentWeather = await fetchCurrentWeather(lat, lng);
   setCurrentWeather(currentWeather, lat, lng);
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("current-weather-info").style.display = "flex";
   // soojin - change 3 hour weather
   threeHourRange(lat, lng);
   // Ana
   fiveDaysWeather(lat, lng);
+
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("main").style.display = "block";
 };
