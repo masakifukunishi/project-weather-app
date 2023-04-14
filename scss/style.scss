@@ -11,7 +11,7 @@ body {
   height: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
-  color: #333;
+  color: black;
   margin: 1.5rem;
   padding: 0;
   background: linear-gradient(#4c68a5, #887fa4, #c7a4a7);
@@ -24,10 +24,11 @@ section {
 h1 {
   font-size: 1.6rem;
   margin: 0;
+  font-weight: bolder;
 }
 
 .search {
-  margin: 0.8rem 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: space-between;
 }

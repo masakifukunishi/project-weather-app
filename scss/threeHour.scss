@@ -6,7 +6,7 @@
         &-title {
             color: black;
             font-size: 1.2rem;
-            font-weight: normal;
+            font-weight: bold;
         }
     
         div {
@@ -52,15 +52,15 @@
     .threeHour {
         display: flex;
         flex-direction: column;
-        
+        margin-top: 10rem;
+
         &-title {
             font-size: 1.2rem;
-            font-weight: normal;
+            font-weight: bold;
         }
     
         div {
             display: flex;
-            // border: 1px solid black;
             padding: 1rem;
             
         }
@@ -86,6 +86,10 @@
             }
         }
 
+        // &__date {
+        //     font-weight: bold;
+        // }
+        
         &__time {
             width: 40%;
             font-size: 0.8rem;

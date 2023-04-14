@@ -7,7 +7,7 @@
   .threeHour-title {
     color: black;
     font-size: 1.2rem;
-    font-weight: normal;
+    font-weight: bold;
   }
   .threeHour div {
     display: flex;
@@ -43,10 +43,11 @@
   .threeHour {
     display: flex;
     flex-direction: column;
+    margin-top: 10rem;
   }
   .threeHour-title {
     font-size: 1.2rem;
-    font-weight: normal;
+    font-weight: bold;
   }
   .threeHour div {
     display: flex;
