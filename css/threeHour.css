@@ -37,6 +37,8 @@
   }
   .threeHour__weather {
     font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: rgba(1, 1, 1, 0.7);
   }
 }
 @media screen and (max-width: 375px) {
@@ -79,6 +81,7 @@
   }
   .threeHour__weather {
     font-size: 0.8rem;
+    color: rgba(1, 1, 1, 0.7);
   }
   .threeHour__temp {
     display: none;
