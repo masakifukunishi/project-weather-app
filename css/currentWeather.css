@@ -4,7 +4,7 @@
   margin: 0;
 }
 #current-weather #current-weather-info {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
@@ -51,4 +51,6 @@
   font-size: 1rem;
   font-weight: normal;
   margin-top: 0.5rem;
-}/*# sourceMappingURL=currentWeather.css.map */
+}
+
+/*# sourceMappingURL=currentWeather.css.map */
