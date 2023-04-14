@@ -12,13 +12,13 @@ const setCurrentWeather = (currentWeather, lat, lng) => {
 
 // This function is executed when a search is performed and when a select box is selected
 const fetchWeatherData = async (lat, lng) => {
-  // current weather
-  const currentWeather = await fetchCurrentWeather(lat, lng);
+  const currentWeatherPromise = fetchCurrentWeather(lat, lng);
+  const threeHourRangePromise = threeHourRange(lat, lng);
+  const fiveDaysWeatherPromise = fiveDaysWeather(lat, lng);
+
+  const [currentWeather, ,] = await Promise.all([currentWeatherPromise, threeHourRangePromise, fiveDaysWeatherPromise]);
+
   setCurrentWeather(currentWeather, lat, lng);
-  // soojin - change 3 hour weather
-  threeHourRange(lat, lng);
-  // Ana
-  fiveDaysWeather(lat, lng);
 
   document.getElementById("loader").style.display = "none";
   document.getElementById("main").style.display = "block";
