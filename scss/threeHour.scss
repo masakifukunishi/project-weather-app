@@ -38,12 +38,10 @@
             font-weight: 600;
         }
         &__weather {
-            font-size: 1.2rem
+            font-size: 1.2rem;
+            margin-top:0.5rem;
+            color:rgba(1, 1, 1,0.7);
         }
-        // &__temp {
-    
-        // }
-       
     }
 }
 
@@ -85,11 +83,6 @@
                 height: 3rem;
             }
         }
-
-        // &__date {
-        //     font-weight: bold;
-        // }
-        
         &__time {
             width: 40%;
             font-size: 0.8rem;
@@ -97,9 +90,9 @@
         }
         &__weather {
             font-size: 0.8rem;
+            color:rgba(1, 1, 1,0.7);
         }
         &__temp {
-
             display: none;
         }
        

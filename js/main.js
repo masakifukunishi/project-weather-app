@@ -3,7 +3,7 @@ const setCurrentWeather = (currentWeather, lat, lng) => {
   currentWeatherElement.querySelector(".city").innerHTML = currentWeather.city;
   currentWeatherElement.querySelector(".temperature").innerHTML = Math.round(currentWeather.temperature) + "°C";
   currentWeatherElement.querySelector(".weather").innerHTML = currentWeather.weather;
-  currentWeatherElement.querySelector(".icon").src = `https://openweathermap.org/img/w/${currentWeather.icon}.png`;
+  currentWeatherElement.querySelector(".icon").src = `https://openweathermap.org/img/wn/${currentWeather.icon}.png`;
   currentWeatherElement.querySelector(".description").innerHTML = currentWeather.description;
   localStorage.setItem("lat", lat);
   localStorage.setItem("lng", lng);
