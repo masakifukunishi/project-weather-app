@@ -1,14 +1,13 @@
 const API_KEY = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
 const DATA_CNT = 8;
 
+async function threeHourRange(lat, log) {
+  //console.log(lat, log);
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${log}&cnt=${DATA_CNT}&appid=${API_KEY}&units=metric`;
 
-function threeHourRange(lat, log){
-    //console.log(lat, log);
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${log}&cnt=${DATA_CNT}&appid=${API_KEY}&units=metric`;
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data =>{
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
         for(let i = 0; i < 8; i++){
             let dt = data.list[i].dt;
             let weatherTime = new Date(dt * 1000);
@@ -33,9 +32,7 @@ function threeHourRange(lat, log){
             document.querySelector(`.threeHour-${i} .threeHour__weather`).innerText =`${weatherDes}`;
             document.querySelector(`.threeHour-${i} .threeHour__temp`).innerText =`${temperature} ℃`;
             document.querySelector(`.threeHour-${i} > img`).src = `https://openweathermap.org/img/wn/${weatherIcon}.png`; 
-
-        }
+      }
     })
     .catch((error) => console.error(error));
 }
-

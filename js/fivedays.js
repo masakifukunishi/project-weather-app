@@ -1,8 +1,7 @@
-function fiveDaysWeather(lat, lng) {
-    const apiKey = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
-
-    const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
-    fetch(URL)
+async function fiveDaysWeather(lat, lng) {
+  const apiKey = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
+  const URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
+    return fetch(URL)
     .then(response =>response.json())
     .then(data =>{
         const interval = Math.floor(data.list.length / 5);
@@ -15,5 +14,5 @@ function fiveDaysWeather(lat, lng) {
           count++;
         }
     })
-}
 
+}
