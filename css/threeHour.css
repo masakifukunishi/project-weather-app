@@ -50,7 +50,6 @@
   }
   .threeHour div {
     display: flex;
-    border: 1px solid black;
     padding: 1rem;
   }
   .threeHour .threeHour-weather {
@@ -61,6 +60,9 @@
   }
   .threeHour .threeHour-weather div {
     display: flex;
+    background-color: rgba(241, 232, 232, 0.5);
+    margin: 0.5rem;
+    border-radius: 1rem;
     justify-content: space-around;
     align-items: center;
     width: 80%;
