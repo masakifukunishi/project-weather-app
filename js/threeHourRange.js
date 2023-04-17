@@ -11,7 +11,7 @@ async function threeHourRange(lat, log) {
         for(let i = 0; i < 8; i++){
             let dt = data.list[i].dt;
             let weatherTime = new Date(dt * 1000);
-            
+            let day ="";
             switch(weatherTime.getDay()){
                 case 1 : day = "Mon"; break;
                 case 2 : day = "Tue"; break;
@@ -27,7 +27,7 @@ async function threeHourRange(lat, log) {
             let weatherDes = data.list[i].weather[0].description;
             let temperature = Math.round(data.list[i].main.temp);
             let weatherIcon = data.list[i].weather[0].icon;
-           
+          
             document.querySelector(`.threeHour-${i} .threeHour__time`).innerText = `${day} ${hour}`;
             document.querySelector(`.threeHour-${i} .threeHour__weather`).innerText =`${weatherDes}`;
             document.querySelector(`.threeHour-${i} .threeHour__temp`).innerText =`${temperature} ℃`;
