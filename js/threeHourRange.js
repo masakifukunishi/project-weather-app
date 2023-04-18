@@ -1,7 +1,7 @@
 const API_KEY = "f8f6bee7d071ca7ad5262dbb8a3f2f76";
 const DATA_CNT = 8;
 
-async function threeHourRange(lat, log) {
+function threeHourRange(lat, log) {
   //console.log(lat, log);
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${log}&cnt=${DATA_CNT}&appid=${API_KEY}&units=metric`;
 
