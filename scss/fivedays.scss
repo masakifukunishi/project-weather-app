@@ -5,6 +5,7 @@ h2{
 h3{
     text-align: center;
     font-weight: bold;
+    
 }
 
 #cityInput,
@@ -17,20 +18,13 @@ button{
     font-size:20px;
     font-weight: bold;
 }
-/* #weatherContainer{
-    height:250px;
-    width: 1289px;
-    border: 5px solid rgba(100, 100, 100, 0.829);
-    border-radius: 10px;
-  
-} */
+
 #iconsContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 350px;
     width: 1300px;
-    /* border: 5px solid rgb(31, 64, 64); */
     border-radius: 0px;
    
 }
@@ -42,19 +36,18 @@ button{
     border: 5px transparent rgb(177, 176, 176);
     background-color:rgba(241, 232, 232,0.5);
     border-radius: 10px;
-    padding-top :2.5rem;
-    
-    span{
-        display: inline-block;
-        font-weight: bold;
-        color:rgba(1, 1, 1,0.7);
-        padding-top: 1rem;
-    }
+    padding-top: 2.5rem;
+}
+span{
+    display: inline-block;
+    font-weight: bold;
+    color:rgba(1, 1, 1,0.7);
+    padding-top: 1rem;
 }
 .image{
     height: 80px;
     width: 70%;
-    align-items: center;
+    align-items: center; 
 }
 .imgClass{
     height: 80px;
@@ -91,7 +84,7 @@ button{
 @media only screen and (max-width: 375px) {
     h2{
         font-size: large;
-        font-weight: bold;
+        font-size: bold;
     }
     h3{
         font-size: smaller;
@@ -99,7 +92,7 @@ button{
     #weatherContainer{
         height:200px;
         width: 500px;
-        // border: 2px solid rgba(100, 100, 100, 0.829);
+        border: 2px solid rgba(100, 100, 100, 0.829);
     }
     #iconsContainer {
         display: flex;
@@ -108,10 +101,9 @@ button{
     }
   
     .icons {
-      height: 240px;
+      height: 190px;
       width: 90px;
       margin: 5px 5px;
-      
     }
   
     .imgClass {
